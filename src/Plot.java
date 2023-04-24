@@ -21,14 +21,13 @@ public class Plot {
         else if (num == 3){
             plantName ="tomato";
         }
-        else if (num == 4){
-            plantName ="empty randomly";
+        else {
+            plantName ="empty";
+            numberOfPlant = 0;
         }
     }
     public void printPlot(){
-        System.out.println("the plot has " +numberOfPlant + " plants planted");
-        System.out.println("the plant needs water? " +needsWater);
-        System.out.println("the plot has " +plantName);
+        System.out.println("the plot has " +numberOfPlant + " of " +plantName+ " and it is " +needsWater+ " that it needs water");
     }
 
 
