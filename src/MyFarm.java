@@ -21,6 +21,8 @@ public class MyFarm {
         }
         totalPlants();
         printPlantNames();
+        totalCarrots();
+        averageNumberOfPlants();
     }
 
     public void totalPlants() {
@@ -33,12 +35,34 @@ public class MyFarm {
         }
         System.out.println(sumOfPlants);
     }
+
     public void printPlantNames() {
         for (int j = 0; j < grid.length; j++) {
             for (int k = 0; k < grid[j].length; k++) {
-                System.out.println("row: " + j + " col: " + k + " " +grid[j][k].plantName);
+                System.out.println("row: " + j + " col: " + k + " " + grid[j][k].plantName);
             }
         }
+    }
+
+    public void totalCarrots() {
+        int sumOfCarrots = 0;
+        for (int h = 0; h < grid.length; h++) {
+            for (int k = 0; k < grid[h].length; k++) {
+                if (grid[h][k].plantName.equals("carrot")) {
+                sumOfCarrots += grid[h][k].numberOfPlant;
+                }
+            }
+        }
+        System.out.println("The total number of carrots is " + sumOfCarrots);
+    }
+    public void averageNumberOfPlants() {
+        int average = 0;
+        for (int q = 0; q < grid.length; q++){
+            for (int o = 0; o < grid[q].length; o++){
+                average += grid[q][o].numberOfPlant/(grid[q].length*grid.length);
+            }
+        }
+        System.out.println("The average number of plants is " + average);
     }
 }
 
