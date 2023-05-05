@@ -6,7 +6,7 @@ public class Plot {
 
     public Plot(){
         //plantName = "sunflower";
-        needsWater = true;
+        needsWater = false;
         numberOfPlant = (int)(Math.random() * 100)+10;
         int num = (int)(Math.random()*5);
         if(num==0){
@@ -29,6 +29,4 @@ public class Plot {
     public void printPlot(){
         System.out.println("the plot has " +numberOfPlant + " of " +plantName+ " and it is " +needsWater+ " that it needs water");
     }
-
-
 }

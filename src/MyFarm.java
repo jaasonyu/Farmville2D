@@ -26,6 +26,7 @@ public class MyFarm {
         numberOfTomatoPlots();
         numberOfEmptyPlots();
         everyOtherNeedsWater();
+        plantWithMaxNumber();
     }
 
     public void totalPlants() {
@@ -92,19 +93,23 @@ public class MyFarm {
         System.out.println("The total number of plot that are empty are " + numberOfEmpty);
     }
     public void everyOtherNeedsWater(){
-        boolean needsWater = false;
         for (int b = 0; b < grid.length; b++) {
             for (int v = 0; v < grid[b].length; v++) {
-                if (grid[b].length == 2) {
-                    needsWater = true;
+                if (v%2 == 1) {
+                    grid[b][v].printPlot();
+                    grid[b][v].needsWater = true;
+                    grid[b][v].printPlot();
                 }
             }
         }
-        System.out.println(needsWater + " the plants need water in this plot.");
-        // change the value of needsWater to be true for every other plot
-        // print the value or needs water for all plots row by row
-
     }
-
+    public void plantWithMaxNumber() {
+        for (int b = 0; b < grid.length; b++) {
+            for (int v = 0; v < grid[b].length; v++) {
+                // which plant type has the most total plants?
+                if ()
+            }
+        }
+    }
 }
 
