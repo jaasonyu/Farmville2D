@@ -26,7 +26,9 @@ public class MyFarm {
         numberOfTomatoPlots();
         numberOfEmptyPlots();
         everyOtherNeedsWater();
+        plotWithMaxNumber();
         plantWithMaxNumber();
+        plantWithMinNumber();
     }
 
     public void totalPlants() {
@@ -81,6 +83,7 @@ public class MyFarm {
         }
         System.out.println("The total number of plot of tomatos are  " + numberOfTomato);
     }
+
     public void numberOfEmptyPlots() {
         int numberOfEmpty = 0;
         for (int e = 0; e < grid.length; e++) {
@@ -92,10 +95,11 @@ public class MyFarm {
         }
         System.out.println("The total number of plot that are empty are " + numberOfEmpty);
     }
-    public void everyOtherNeedsWater(){
+
+    public void everyOtherNeedsWater() {
         for (int b = 0; b < grid.length; b++) {
             for (int v = 0; v < grid[b].length; v++) {
-                if (v%2 == 1) {
+                if (v % 2 == 1) {
                     grid[b][v].printPlot();
                     grid[b][v].needsWater = true;
                     grid[b][v].printPlot();
@@ -103,13 +107,73 @@ public class MyFarm {
             }
         }
     }
-    public void plantWithMaxNumber() {
+
+    public void plotWithMaxNumber() {
+        int maxNumber = grid[0][0].numberOfPlant;
+        String name = grid[0][0].plantName;
         for (int b = 0; b < grid.length; b++) {
             for (int v = 0; v < grid[b].length; v++) {
                 // which plant type has the most total plants?
-                if ()
+                if(grid[b][v].numberOfPlant > maxNumber) {
+                    maxNumber = grid[b][v].numberOfPlant;
+                    name = grid[b][v].plantName;
+
+                }
             }
         }
+        System.out.println(name + " has the most plants with a total of " + maxNumber + " plants.");
+    }
+    public void plantWithMaxNumber() {
+        int numCorn = 0;
+        int numTomato = 0;
+        int numCarrot = 0;
+        int numSunflower = 0;
+        for (int b = 0; b < grid.length; b++) {
+            for (int g = 0; g < grid[b].length; g++) {
+                switch (grid[b][g].plantName){
+                    case "corn":
+                        numCorn += grid[b][g].numberOfPlant;
+                        break;
+                    case"sunflower":
+                        numSunflower += grid[b][g].numberOfPlant;
+                        break;
+                    case "tomato":
+                        numTomato += grid[b][g].numberOfPlant;
+                        break;
+                    default:
+                        numCarrot += grid[b][g].numberOfPlant;
+                        break;
+
+                }
+            }
+        }
+        if(numCorn > numCarrot && numCorn > numSunflower && numCarrot > numTomato){
+            System.out.println("Corn has the most plants with " + numCorn + " plants");
+        }
+        if(numTomato > numCarrot && numTomato > numSunflower && numTomato > numCorn){
+            System.out.println("Tomato has the most plants with " + numTomato + " plants");
+        }
+        if(numCarrot > numTomato && numCarrot > numSunflower && numCarrot > numCorn){
+            System.out.println("Carrot has the most plants with " + numCarrot + " plants");
+        }
+        if(numSunflower > numCarrot && numSunflower > numTomato && numSunflower > numCorn){
+            System.out.println("Sunflower has the most plants with " + numSunflower + " plants");
+        }
+    }
+    public void plantWithMinNumber() {
+        int minNumber = grid[0][0].numberOfPlant;
+        String name = grid[0][0].plantName;
+        for (int b = 0; b < grid.length; b++) {
+            for (int g = 0; g < grid[b].length; g++) {
+                // which plant type has the most total plants?
+                if(grid[b][g].numberOfPlant < minNumber) {
+                    minNumber = grid[b][g].numberOfPlant;
+                    name = grid[b][g].plantName;
+
+                }
+            }
+        }
+        System.out.println(name + " has the most plants with a total of " + minNumber + " plants.");
     }
 }
 
