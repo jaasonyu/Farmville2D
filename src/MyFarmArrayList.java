@@ -25,6 +25,10 @@ public class MyFarmArrayList {
         printPlantNames();
         addCorn();
         printPlantNames();
+        tomatoLocations();
+        totalCarrots();
+        averageNumberOfPlants();
+        numberOfCarrotPlots();
     }
     public void totalPlants(){
         int total = 0;
@@ -60,7 +64,49 @@ public class MyFarmArrayList {
         corn.printPlot();
         row.add(3,corn);
     }
+    public void tomatoLocations() {
+        // print indexes of all tomato plants
+        // call printPlantNames() method to make sure you're getting the correct indexes
+        for (int m = 0; m < row.size(); m++) {
+            if (row.get(m).plantName.equals("tomato")) {
+                System.out.println(m);
+            }
+        }
+    }
+    public void totalCarrots() {
+        // how many total carrot plants are there?
+        int numberOfCarrots = 0;
+        for(Plot b:row) {
+            if (b.plantName.equals("carrot")) {
+                numberOfCarrots += b.numberOfPlant;
+            }
+        }
+        System.out.println("total number of carrots is " + numberOfCarrots);
+    }
+
+    public void averageNumberOfPlants() {
+        // what is the average number of plants across the whole row?
+        int totalNumberOfPlants = 0;
+        double average = 0.0;
+        for (Plot b : row) {
+            totalNumberOfPlants += b.numberOfPlant;
+        }
+        average = totalNumberOfPlants/row.size();
+        System.out.println("average number of plants per plot is " + average);
+    }
+    public void numberOfCarrotPlots() {
+//         how many plots have carrots on them
+//       call printPlantNames() method to check
+        int numberOfCarrots = 0;
+        for(Plot b:row) {
+            if (b.plantName.equals("carrot")) {
+                numberOfCarrots += b.plantName;
+            }
+        }
+        System.out.println("total number of carrots is " + numberOfCarrots);
+    }
 }
+
 
 
 
