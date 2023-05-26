@@ -29,6 +29,10 @@ public class MyFarmArrayList {
         totalCarrots();
         averageNumberOfPlants();
         numberOfCarrotPlots();
+        everyOtherNeedsWater();
+        printRowInfo();
+        numberOfEmptyPlots();
+        plantWithMaxNumber();
     }
     public void totalPlants(){
         int total = 0;
@@ -36,6 +40,11 @@ public class MyFarmArrayList {
             total += a.numberOfPlant;
         }
         System.out.println("total plant in my farm is " + total);
+    }
+    public void printRowInfo(){
+        for(Plot a:row){
+            a.printPlot();
+        }
     }
     public void printPlantNames() {
         // print the name of each plant in the row and its index
@@ -97,13 +106,40 @@ public class MyFarmArrayList {
     public void numberOfCarrotPlots() {
 //         how many plots have carrots on them
 //       call printPlantNames() method to check
-        int numberOfCarrots = 0;
-        for(Plot b:row) {
-            if (b.plantName.equals("carrot")) {
-                numberOfCarrots += b.plantName;
+        int numberOfCarrotPlots = 0;
+        for (Plot n : row) {
+            if (n.plantName.equals("carrot")) {
+                numberOfCarrotPlots += 1;
             }
         }
-        System.out.println("total number of carrots is " + numberOfCarrots);
+        System.out.println("total number of carrot plots is " + numberOfCarrotPlots);
+    }
+    public void numberOfEmptyPlots() {
+        // how many plots are empty
+// call printPlantNames() method to check
+        int numberOfEmptyPlots = 0;
+        for (Plot n : row) {
+            if (n.plantName.equals("empty")) {
+                numberOfEmptyPlots += 1;
+            }
+        }
+        System.out.println("total number of carrot plots is " + numberOfEmptyPlots);
+    }
+
+    public void everyOtherNeedsWater(){
+        // change the value of needsWater to be true for every other plot
+        for(int n = 0; n<row.size();n++){
+            if(n%2==1){
+                row.get(n).needsWater = false;
+            }
+            else {
+                row.get(n).needsWater = true;
+            }
+        }
+    }
+    public void plantWithMaxNumber() {
+        // which plant type has the most total plants?
+
     }
 }
 
