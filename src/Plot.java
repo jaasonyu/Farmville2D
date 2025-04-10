@@ -1,32 +1,49 @@
 public class Plot {
+
     public String plantName;
-    //lets other classes use planting
-    public int numberOfPlant;
+    public int numberOfPlants;
     public boolean needsWater;
 
-    public Plot(){
-        //plantName = "sunflower";
-        needsWater = false;
-        numberOfPlant = (int)(Math.random() * 100)+10;
-        int num = (int)(Math.random()*5);
-        if(num==0){
+    public Plot(String pPlantName, int pNumberOfPlants, boolean pNeedsWater) {
+
+        plantName = pPlantName;
+        numberOfPlants = pNumberOfPlants;
+        needsWater = pNeedsWater;
+
+    }
+
+    public Plot() {
+
+        // choose random numbers for plantID and numberOfPlants
+
+        numberOfPlants = (int)(Math.random() * 100 + 10);
+        int plantID = (int)(Math.random() * 5);
+
+        // assign plant name based on plantID
+        if (plantID == 0) {
+            plantName = "carrot";
+        } else if (plantID == 1) {
             plantName = "sunflower";
+        } else if (plantID == 2) {
+            plantName = "corn";
+        } else if (plantID == 3) {
+            plantName = "tomato";
+        } else {
+            plantName = "empty";
+            numberOfPlants = 0;
         }
-        else if (num == 1){
-            plantName ="corn";
-        }
-        else if (num == 2){
-            plantName ="carrot";
-        }
-        else if (num == 3){
-            plantName ="tomato";
-        }
-        else {
-            plantName ="empty";
-            numberOfPlant = 0;
-        }
+
     }
-    public void printPlot(){
-        System.out.println("the plot has " +numberOfPlant + " of " +plantName+ " and it is " +needsWater+ " that it needs water");
+
+    public void printPlotInfo(){
+
+        System.out.println("********");
+        System.out.println("type of plot: " + plantName);
+        System.out.println("number of plants: " + numberOfPlants);
+        System.out.println("needs water: " + needsWater);
+        System.out.println();
+
     }
+
+
 }
